@@ -5,7 +5,7 @@
 ## 文件
 - `docker-composer.yml`: docker容器编排文件，也是搭建本地环境的入口文件。
 - `Dockerfile.php`: php环境容器
-- `Dockerfile.queue`: supervisord环境容器，容器基于php容器，开启了cron，用于实现队列及定时任务。
+- `Dockerfile.queue`: supervisord环境容器，容器基于php容器，开启了cron，用于实现队列及定时任务。该文件构建的容器用于模拟linux的shell环境，其他项目中所需要的软件可以在此容器中安装。
 
 ## 目录
 - `data`: mysql与redis数据目录
