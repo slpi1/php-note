@@ -13,8 +13,9 @@
         - [版本要求](#版本要求)
         - [源码分析系列](#源码分析系列)
         - [扩展包](#扩展包)
-        - [最佳实践](#最佳实践)
     - [YII](#YII)
+- [最佳实践](#最佳实践)
+
 
 # 编码规范
 
@@ -112,8 +113,13 @@
 - [im-sdk](https://gitlab.uuzu.com/songzhp/im-sdk): 公司内部IM软件接口扩展包
 - [emp-sdk](https://gitlab.uuzu.com/songzhp/emp-sdk): 公司人员中枢接口扩展包
 
-### 最佳实践
-
-`待更新`
-
 ## YII
+
+# 最佳实践
+
+- TODO::可配置化
+- TODO::接口返回定义
+- TODO::异常的使用
+- TODO::对象属性修改的注意事项
+- TODO::input的作用域
+- TODO::如何进行代码结构的规划
