@@ -624,4 +624,4 @@ LUA;
 关于laravel的队列就是这些了，具体的细节部分，有大家去针对性的查看对应源码。这里对整体的逻辑做一个总结，如图:
 ![queue](/images/queue.png)
 具体payload在Redis中的流转过程如图：
-![queue-redis](/images/queue-redis.png)
+![queue-redis](/images/queue-redis.jpg)
