@@ -117,7 +117,7 @@
 
 # 最佳实践
 
-- [PHP坑爹函数系列](/discuss/what_the_fun..function.md)
+- [PHP坑爹函数系列](/discuss/what_the_fu..function.md)
 - [错误与异常的处理](/discuss/error.md)
 
 # TODO
