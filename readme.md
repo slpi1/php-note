@@ -119,6 +119,7 @@
 
 - [PHP坑爹函数系列](/discuss/what_the_fu..function.md)
 - [错误与异常的处理](/discuss/error.md)
+- [如何进行代码结构的规划](/discuss/package.md)
 
 # TODO
 - ~~PHP坑爹函数系列~~
@@ -127,4 +128,4 @@
 - 接口返回定义
 - 对象属性修改的注意事项
 - input的作用域
-- 如何进行代码结构的规划
+- ~~如何进行代码结构的规划~~
