@@ -39,6 +39,7 @@ class ErrorDemo
 
     public function handleError($level, $message, $file = '', $line = 0, $context = [])
     {
+        $this->catchError = true;
         print_r("set_error_handler:\t\n");
         print_r([
             'level'   => $level,
@@ -50,6 +51,7 @@ class ErrorDemo
     }
     public function handleException($e)
     {
+        $this->catchException = true;
         print_r("set_exception_handler:\r\n");
         print_r($e);
     }

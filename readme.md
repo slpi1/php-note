@@ -107,6 +107,7 @@
 - [laravel ORM源码分析](/laravel/eloquent-article.md)
 - [laravel 队列部分源码阅读](/laravel/queue.md)
 - [laravel 路由模块源码分析](/laravel/route.md)
+- [laravel 框架对__call魔术方法的使用](/laravel/__call.md)
 
 ### 扩展包
 - [log](https://gitlab.uuzu.com/songzhp/log): laravel 日志记录扩展包
