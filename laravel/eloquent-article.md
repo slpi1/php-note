@@ -190,7 +190,8 @@ Builder有三个成员对象:
  - Grammar
  - Processor
 
-** ConnectionInterface **
+**ConnectionInterface**
+
 ConnectionInterface对象是执行SQL语句、对读写分离连接进行管理的对象，也就是数据库连接对象。是最初级的、能与数据交互的对象：
 ```
 DB::select('select * from users where active = ?', [1]);
@@ -225,11 +226,11 @@ public static function resolveConnection($connection = null)
 }
 ```
 
-** Grammar **
+**Grammar**
 
 Grammar对象是SQL语法解析对象，我们在Builder对象中调用的方法，会以Builder属性的形式将调用参数管理起来，然后在调用SQL执行方法时，先通过Grammar对象对这些数据进行解析，解析出将要执行的SQL语句，然后交给ConnectionInterface执行，获取到数据。
 
-** Processor **
+**Processor**
 
 Processor对象的作用比较简单，将查询结果数据返回给Builder，包括查询的行数据，插入后的自增ID值。
 
