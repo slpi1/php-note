@@ -95,9 +95,9 @@ class SendMailFilter
 
     // 定义放行的收件邮箱列表
     protected $whiteList = [
-        'songzhp@youzu.com',
-        'wangpp@youzu.com',
-        'anrr@youzu.com',
+        'aaa@youzu.com',
+        'bbb@youzu.com',
+        'ccc@youzu.com',
     ];
 
     /**
