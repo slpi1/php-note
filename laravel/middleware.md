@@ -67,7 +67,3 @@
     'throttle'   => \Illuminate\Routing\Middleware\ThrottleRequests::class,
 ]
 ```
-
-## 中间的实现
-
-### Pipeline

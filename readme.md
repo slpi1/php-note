@@ -110,6 +110,7 @@
 - [laravel 框架对__call魔术方法的使用](/laravel/__call.md)
 - [laravel Auth源码分析](/laravel/auth.md)
 - [laravel Pipeline源码分析](/laravel/pipeline.md)
+- [邮件发送过滤](/laravel/email-filter.md)
 
 ### 扩展包
 - [log](https://gitlab.uuzu.com/songzhp/log): laravel 日志记录扩展包
