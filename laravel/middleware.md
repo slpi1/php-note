@@ -1,5 +1,16 @@
 # Laravel 中间件
 
+# Index
+ - [中间件全家福](#中间件全家福)
+ - [Authenticate](#Authenticate)
+ - [CheckForMaintenanceMode](#CheckForMaintenanceMode)
+ - [EncryptCookies](#EncryptCookies)
+ - [RedirectIfAuthenticated](#RedirectIfAuthenticated)
+ - [TrimStrings](#TrimStrings)
+ - [TrustProxies](#TrustProxies)
+ - [VerifyCsrfToken](#VerifyCsrfToken)
+ - 待续...
+
 ## 中间件全家福
 先在这里列一下框架中用到的中间件。
 
@@ -67,3 +78,247 @@
     'throttle'   => \Illuminate\Routing\Middleware\ThrottleRequests::class,
 ]
 ```
+
+## Authenticate
+   
+### 源文件
+
+`app\Http\Middleware\Http\Middleware\Authenticate.php`
+
+```php
+<?php
+
+namespace App\Http\Middleware;
+
+use Illuminate\Auth\Middleware\Authenticate as Middleware;
+
+class Authenticate extends Middleware
+{
+    /**
+    * Get the path the user should be redirected to when they are not authenticated.
+    *
+    * @param \Illuminate\Http\Request $request
+    * @return string
+    */
+    protected function redirectTo($request)
+    {
+        if (! $request->expectsJson()) {
+            return route('login');
+        }
+    }
+}
+```
+
+### 作用
+
+用户身份验证。可修改 `redirectTo` 方法，返回未经身份验证的用户应该重定向到的路径。
+
+
+## CheckForMaintenanceMode
+
+### 源文件
+
+`app\Http\Middleware\CheckForMaintenanceMode.php`
+
+```php
+<?php
+
+namespace App\Http\Middleware;
+
+use Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode as Middleware;
+
+class CheckForMaintenanceMode extends Middleware
+{
+    /**
+    * The URIs that should be reachable while maintenance mode is enabled.
+    *
+    * @var array
+    */
+    protected $except = [
+        //
+    ];
+}
+```
+
+### 作用
+
+检测项目是否处于 **维护模式**。可通过 `$except` 数组属性设置在维护模式下仍能访问的网址。
+
+
+## EncryptCookies
+
+### 源文件
+
+`app\Http\Middleware\EncryptCookies.php`
+
+```php
+<?php
+
+namespace App\Http\Middleware;
+
+use Illuminate\Cookie\Middleware\EncryptCookies as Middleware;
+
+class EncryptCookies extends Middleware
+{
+    /**
+    * The names of the cookies that should not be encrypted.
+    *
+    * @var array
+    */
+    protected $except = [
+        //
+    ];
+}
+```
+
+### 作用
+
+对 Cookie 进行加解密处理与验证。可通过 `$except` 数组属性设置不做加密处理的 cookie。
+
+
+
+## RedirectIfAuthenticated
+
+### 源文件
+
+`app\Http\Middleware\RedirectIfAuthenticated.php`
+
+```php
+<?php
+
+namespace App\Http\Middleware;
+
+use Closure;
+use Illuminate\Support\Facades\Auth;
+
+class RedirectIfAuthenticated
+{
+/**
+* Handle an incoming request.
+*
+* @param \Illuminate\Http\Request $request
+* @param \Closure $next
+* @param string|null $guard
+* @return mixed
+*/
+public function handle($request, Closure $next, $guard = null)
+{
+    if (Auth::guard($guard)->check()) {
+        return redirect('/home');
+    }
+
+    return $next($request);
+    }
+}
+```
+
+### 作用
+
+当请求页是 `注册、登录、忘记密码` 时，检测用户是否已经登录，如果已经登录，那么就重定向到首页，如果没有就打开相应界面。可以在 `handle` 方法中定制重定向到的路径。
+
+
+## TrimStrings
+
+### 源文件
+
+`app\Http\Middleware\TrimStrings.php`
+
+```php
+<?php
+
+namespace App\Http\Middleware;
+
+use Illuminate\Foundation\Http\Middleware\TrimStrings as Middleware;
+
+class TrimStrings extends Middleware
+{
+    /**
+    * The names of the attributes that should not be trimmed.
+    *
+    * @var array
+    */
+    protected $except = [
+        'password',
+        'password_confirmation',
+    ];
+}
+```
+
+### 作用
+
+对请求参数内容进行 **前后空白字符清理**。可通过 `$except` 数组属性设置不做处理的参数。
+
+
+## TrustProxies
+
+### 源文件
+
+`app\Http\Middleware\TrustProxies.php`
+
+```php
+<?php
+
+namespace App\Http\Middleware;
+
+use Illuminate\Http\Request;
+use Fideloper\Proxy\TrustProxies as Middleware;
+
+class TrustProxies extends Middleware
+{
+    /**
+    * The trusted proxies for this application.
+    *
+    * @var array|string
+    */
+    protected $proxies;
+
+    /**
+    * The headers that should be used to detect proxies.
+    *
+    * @var int
+    */
+    protected $headers = Request::HEADER_X_FORWARDED_ALL;
+}
+```
+
+### 作用
+
+配置可信代理。可通过 `$proxies` 属性设置可信代理列表，`$headers` 属性设置用来检测代理的 HTTP 头字段。
+
+
+## VerifyCsrfToken
+
+### 源文件
+
+`app\Http\Middleware\VerifyCsrfToken.php`
+
+```php
+<?php
+
+namespace App\Http\Middleware;
+
+use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken as Middleware;
+
+class VerifyCsrfToken extends Middleware
+{
+    /**
+    * Indicates whether the XSRF-TOKEN cookie should be set on the response.
+    *
+    * @var bool
+    */
+    protected $addHttpCookie = true;
+
+    /**
+    * The URIs that should be excluded from CSRF verification.
+    *
+    * @var array
+    */
+    protected $except = [
+        //
+    ];
+}
+```
+
+### 作用
+
+验证请求里的令牌是否与存储在会话中令牌匹配。可通过 `$except` 数组属性设置不做 CSRF 验证的网址。
