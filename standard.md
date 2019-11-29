@@ -388,7 +388,7 @@ try {
 - 闭包中有默认值的参数**必须**放到列表的后面。
 - 标准的闭包声明语句如下所示，注意其 括号、逗号、空格以及花括号的位置。
 
-```PHP
+```php
 <?php
 
 $closureWithArgs = function ($arg1, $arg2)
@@ -407,7 +407,7 @@ $closureWithArgsAndVars = function ($arg1, $arg2) use ($var1, $var2)
 
 以下几个例子，包含了参数和变量列表被分成多行的多情况。
 
-```PHP
+```php
 <?php
 
 $longArgsNoVars = function (
