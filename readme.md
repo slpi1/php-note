@@ -26,6 +26,8 @@
 
 对我们的意义在于：规范让我们能编写可维护性更高的代码。
 
+[规范概览](/standard.md)
+
 通过给IDE编辑器安装相关插件，可以达到自动规范化代码的目的，具体教程方法可以在网上搜索一下。
  - [phpfpm](https://packagecontrol.io/packages/phpfmt)
  - [sublime安装phpfpm及配置](https://www.eertime.com/archives/86.html)
