@@ -127,6 +127,7 @@
 - [PHP坑爹函数系列](/discuss/what_the_fu..function.md)
 - [错误与异常的处理](/discuss/error.md)
 - [如何进行代码结构的规划](/discuss/package.md)
+- [Excel单元格自动合并的实现方案](/discuss/excel-merge-cell.md)
 
 # TODO
 - ~~PHP坑爹函数系列~~
