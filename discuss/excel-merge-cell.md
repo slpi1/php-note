@@ -637,4 +637,27 @@ if ($this->exporter instanceof WithStopRule) {
 
 其中 `exporter` 就是一开始给定的原始数据对象，如果该对象实现了 `WithStopRule` 接口的话，表名该对象定义了自己的停止规则，通过 `stopRows/stopColumns` 方法获取到原始数据定义的停止规则 `$rule`，然后将 `$rule`和当前的点 `$cell` 传给 `parserStopRowRule` 方法，计算出在当前点 `$cell` 是否需要停止。
 
+最终代码结构如下：
+
+```
+/
+|----/Concerns/
+|--------/ExtendStopColumns.php·············停止列继承
+|--------/ExtendStopRows.php················停止行继承
+|--------/RepositoryInterface.php···········源数据对象接口
+|--------/WithStopRule.php··················停止规则定义接口
+|----/Merge/
+|--------/Discover.php······················搜索过程定义
+|--------/StopRule.php······················停止规则解析
+|----/Repositories/
+|--------/ArrayRepository.php···············二维数组源数据包装对象
+|--------/WorksheetRepository.php···········Excel工作表源数据包装对象
+|----/Table/
+|--------/Cell.php··························基础点对象
+|--------/Range.php·························基础区域对象
+|----/Table/
+|--------/ExcelBaseOperate.php··············行与列操作方法
+```
+
+
 完整代码请转[gitlab.uuzu.com/songzhp/laravel-excel-merge](https://gitlab.uuzu.com/songzhp/laravel-excel-merge)
