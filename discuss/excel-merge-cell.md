@@ -622,4 +622,19 @@ class StopRule
 }
 ```
 
+在进行停止行的判定时，有这样的一部分代码：
+
+```php
+if ($this->exporter instanceof WithStopRule) {
+    $rule       = $this->exporter->stopRows();
+    $shouldStop = $this->parserStopRowRule($rule, $cell);
+
+    if ($shouldStop) {
+        return true;
+    }
+}
+```
+
+其中 `exporter` 就是一开始给定的原始数据对象，如果该对象实现了 `WithStopRule` 接口的话，表名该对象定义了自己的停止规则，通过 `stopRows/stopColumns` 方法获取到原始数据定义的停止规则 `$rule`，然后将 `$rule`和当前的点 `$cell` 传给 `parserStopRowRule` 方法，计算出在当前点 `$cell` 是否需要停止。
+
 完整代码请转[gitlab.uuzu.com/songzhp/laravel-excel-merge](https://gitlab.uuzu.com/songzhp/laravel-excel-merge)
