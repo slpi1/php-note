@@ -122,7 +122,7 @@ $result = $templateProcessor->getVariableCount();
 
 通过对比发现，审阅模式下被编辑过的内容，依然存在文档数据源中，不过被添加了一对 `<w:delText></w:delText>` 的标记。所以我们只需要在执行 `getVariableCount()` 方法时，过滤掉这部分的标记即可。
 
-为了方便操作，我们新建一个类，继承自 `PhpOffice\PhpWord\TemplateProcessor` 类，然后添加相应操作即可：
+为了方便操作，我们新建一个类，继承自 `PhpOffice\PhpWord\TemplateProcessor` 类，然后添加相应操作：
 
 ```php
 <?php
