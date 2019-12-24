@@ -196,7 +196,7 @@ class WordTagDeleteCheck extends TemplateProcessor
 ```
 
 # word转pdf
-要完成word转pdf，需要现在服务器上暗转软件 `libreoffice` 然后就可以通过命令来完成：
+要完成word转pdf，需要现在服务器上安装软件 `libreoffice`， 然后就可以通过命令来完成：
 
 ```bash
 export HOME=/output && soffice  --headless --convert-to pdf:writer_pdf_Export  --outdir /output /target.docx
