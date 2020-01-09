@@ -115,6 +115,7 @@
 - [邮件发送过滤](/laravel/email-filter.md)
 - [laravel 中间件](/laravel/middleware.md)
 - [laravel 文件系统](/laravel/filesystem.md)
+- [laravel 模型观察者](/laravel/observer.md)
 
 ### 扩展包
 - [log](https://gitlab.uuzu.com/songzhp/log): laravel 日志记录扩展包
