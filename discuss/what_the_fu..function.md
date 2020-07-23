@@ -8,6 +8,7 @@
 - [realpath](#realpath)
 - [pathinfo](#pathinfo)
 - [opendir](#opendir)
+- [filesize](#filesize)
 
 
 # 前言
@@ -64,3 +65,6 @@ $pass     = "123456youzu";
 $letter   = "Z";
 system("net use " . $letter . ": \"" . $location . "\" " . $pass . " /user:" . $user . " /persistent:no>nul 2>&1");
 ```
+
+# filesize
+因为 `PHP` 的整数类型是有符号整型而且很多平台使用 `32` 位整型，对 `2GB` 以上的文件，一些文件系统函数可能返回无法预期的结果 。
